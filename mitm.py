@@ -23,7 +23,7 @@ is_same_server = False
 xuid_list = []
 xuid_list_lock = threading.Lock()
 stop_event = threading.Event()
-webhook_url = 'https://discord.com/api/webhooks/1313512744322076682/jy-kB1jJvE9Q-jSDnox3-XiUkQ39bfHPPiNRc5OrJBaKiHktH0e3DEB67TsDmpILOWwX'
+webhook_url = '####'
 
 def enable_proxy(proxy):
 	try:
