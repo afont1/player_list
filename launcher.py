@@ -23,7 +23,12 @@ def install_packages():
 	pip install mitmproxy pystray Pillow requests psutil;
 	pause;
 	'''
-	subprocess.run(['powershell', '-Command', install_commands], creationflags=subprocess.CREATE_NEW_CONSOLE)
+	try:
+		subprocess.run(['powershell', '-Command', install_commands], creationflags=subprocess.CREATE_NEW_CONSOLE)
+	except subprocess.CalledProcessError as e:
+		print(f"Error executing command: {e}")
+		print(f"Command output: {e.stdout}")
+		print(f"Command error: {e.stderr}")
 
 	if not os.path.exists(CHECK_FILE_PATH):
 		with open(CHECK_FILE_PATH, 'w') as f:
@@ -39,17 +44,17 @@ def resource_path(relative_path):
 
 def launch_mitm():
 	mitm_script = resource_path('mitm.py')
+	allowed_hosts = 'playfabapi\\.com|privacy\\.xboxlive\\.com|sessiondirectory\\.xboxlive\\.com'
 	command = [
 		'mitmdump',
 		'--quiet',
-		'--allow-hosts', 'playfabapi.com',
-		'--allow-hosts', 'privacy.xboxlive.com',
-		'--allow-hosts', 'sessiondirectory.xboxlive.com',
+		'--allow-hosts', allowed_hosts,
 		'-p', '20000',
 		'-s', mitm_script,
 	]
 	try:
 		subprocess.run(command, creationflags=subprocess.CREATE_NO_WINDOW)
+		# subprocess.run(command)
 	except subprocess.CalledProcessError as e:
 		print(f"Error executing command: {e}")
 		print(f"Command output: {e.stdout}")

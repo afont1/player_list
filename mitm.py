@@ -23,7 +23,7 @@ is_same_server = False
 xuid_list = []
 xuid_list_lock = threading.Lock()
 stop_event = threading.Event()
-webhook_url = '#'
+webhook_url = 'https://discord.com/api/webhooks/1313512744322076682/jy-kB1jJvE9Q-jSDnox3-XiUkQ39bfHPPiNRc5OrJBaKiHktH0e3DEB67TsDmpILOWwX'
 
 def enable_proxy(proxy):
 	try:
@@ -68,7 +68,8 @@ def request(flow: http.HTTPFlow) -> None:
 						with xuid_list_lock:
 							xuid_list.append(xuid)
 		except Exception as e:
-			print(f"Unexpected error: {e}")
+			print(f"Unexpected error request: {e}")
+			pass
 
 def response(flow: http.HTTPFlow) -> None:
 	global server_name, stamp_id, server_ip, is_same_server
@@ -80,7 +81,9 @@ def response(flow: http.HTTPFlow) -> None:
 			server_name = properties["system"]["matchmaking"]["serverConnectionString"]
 			stamp_id = properties["custom"]["StampId"]
 			server_ip = properties["custom"]["GameServerAddress"]
+			print(f"Server Name: {server_name}, Stamp ID: {stamp_id}, Server IP: {server_ip}")
 		except Exception as e:
+			print(f"Unexpected error response: {e}")
 			pass
 
 def routine():
