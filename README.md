@@ -2,12 +2,9 @@
 
 ## Installation
 
-1. Before launching the launcher for the first time, double-click on `mitmproxy-ca-cert.p12`.
-   - Make sure to select "Local Computer" and not "Current User", then click "Next" until the end.
+1. Authorize the `.exe` file in Windows Defender, otherwise it will be deleted.
 
-2. Authorize the `.exe` file in Windows Defender, otherwise it will be deleted.
-
-3. When you launch in administrator mode, it installs the necessary dependencies for the program to function properly.
+2. When you launch in administrator mode, it installs the necessary dependencies for the program to function properly.
    - If you launch without administrator mode, it simply launches the player list.
    - If there is a problem, try launching in administrator mode, it might solve the issue.
 

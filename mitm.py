@@ -24,9 +24,9 @@ is_same_server = False
 xuid_list = []
 xuid_list_lock = threading.Lock()
 stop_event = threading.Event()
-webhook_url = '####'
 monitor_thread = None
 icon_thread = None
+webhook_url = '####'
 
 def is_admin():
 	try:
