@@ -1,0 +1,9 @@
+quand j'arette le serv ca coupe toutes les connections
+la fenetre apparait au meme endroit ou elle a ete fermee
+icone de fenetre
+changer la barre native windows pour fermer la fenetre
+fenetre data base
+changer icon fenetre
+bouton ajouter streamer, cheater fr...
+ca ferme pas la fenetre quand le serv est pas on
+faire en sorte que le client tente de se reconnecter toutes les X secondes au serveur pour eviter de devoir relancer la pl donc le jeu si le serv crash etc
